@@ -6,5 +6,6 @@ lazy val root = project
     name := "dott-challenge",
     version := "0.1.0",
     scalaVersion := scala3Version,
-    libraryDependencies += "com.novocode" % "junit-interface" % "0.11" % "test"
+    libraryDependencies += "org.scala-lang.modules" %% "scala-parallel-collections" % "1.0.3",
+    libraryDependencies += "org.scalameta" %% "munit" % "0.7.27" % Test,
   )
