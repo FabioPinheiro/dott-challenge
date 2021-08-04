@@ -1,8 +1,40 @@
-## sbt project compiled with Scala 3
+## Challenge for Dott.pt
 
-### Usage
+### The purpose of this exercise is to check if older products are still being sold. Consider the following entities
 
-This is a normal sbt project. You can compile code with `sbt compile`, run it with `sbt run`, and `sbt console` will start a Scala 3 REPL.
+`Order`: contains general information about the order (customer name and contact,
 
-For more information on the sbt-dotty plugin, see the
-[scala3-example-project](https://github.com/scala/scala3-example-project/blob/main/README.md).
+shipping address, grand total, date when the order was placed, ...)
+
+`Item`: information about the purchased item (cost, shipping fee, tax amount, ...)
+
+`Product`: information about the product (name, category, weight, price, creation date, ...)
+
+These entities are all related: one order contains several items, and each item has a product.
+
+Please implement a tool that receives an interval and filters all orders placed during that interval.
+
+The result should be a list of intervals (in months) that groups the orders based on the product
+
+age (creation date field in the product entity). If we have orders in the older intervals it means
+
+that older products are still being sold.
+
+### Example
+
+`$ java -jar orders.jar "2018-01-01 00:00:00" "2019-01-01 00:00:00"`
+
+Result:
+```
+1-3 months: 200 orders
+
+4-6 months: 150 orders
+
+7-12 months: 50 orders
+
+>12 months: 20 orders
+```
+
+### Bonus feature
+
+Add an argument to this tool that allow us to pass a list of intervals instead of having the fixed intervals defined above (`“1-3”, “4-6”, “7-12”, “>12”`)
